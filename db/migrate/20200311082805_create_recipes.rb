@@ -1,8 +1,8 @@
 class CreateRecipes < ActiveRecord::Migration[6.0]
   def change
     create_table :recipes do |t|
-      t.string :user_id
-      t.string :ingredient_id
+      t.integer :user_id
+      t.integer :ingredient_id
       t.string :name
       t.text :description
       
