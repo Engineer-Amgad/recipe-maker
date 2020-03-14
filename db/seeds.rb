@@ -16,3 +16,9 @@ ingredient = Ingredient.create(name: "Lettus")
 ingredient = Ingredient.create(name: "Tomatoes")
 ingredient = Ingredient.create(name: "Meat")
 ingredient = Ingredient.create(name: "Eggs")
+
+recipe = Recipe.new(name: "salad")
+recipe.description = "cut salad and add salt"
+recipe.ingredient_id = 1
+recipe.save
+

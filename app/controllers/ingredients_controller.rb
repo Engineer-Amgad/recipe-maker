@@ -1,6 +1,14 @@
 class IngredientsController < ApplicationController
 
     def index
-        @recipe = Recipe.find_by(id: params[:recipe_id])
+        get_recipe
     end 
+
+    def new
+        get_recipe
+    end 
+
+    def get_recipe
+        @recipe ||= Recipe.find_by(id: params[:recipe_id])
+    end
 end
