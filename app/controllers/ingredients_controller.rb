@@ -1,6 +1,6 @@
 class IngredientsController < ApplicationController
 
     def index
-        @ingredients = Ingredient.all
+        @recipe = Recipe.find_by(id: params[:recipe_id])
     end 
 end
