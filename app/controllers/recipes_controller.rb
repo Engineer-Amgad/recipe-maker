@@ -8,10 +8,14 @@ class RecipesController < ApplicationController
         @recipe = Recipe.new
     end 
 
+    def show
+        @recipe = Recipe.find(params[:id])
+    end
+
     def create
         @recipe = Recipe.new(recipe_params)
         if @recipe.save
-            redirect_to recipes_path(@recipe)
+            redirect_to recipes_path
         else
             render :new
         end 
