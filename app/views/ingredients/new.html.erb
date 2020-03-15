@@ -1,0 +1,9 @@
+<h3> Add a new ingredient to the <i><%= @recipe.name %></i> recipe.</h3>
+
+<%= form_for @ingredient do |f| %>
+    <%= f.collection_select :name, Ingredient.all, :id, :name %>
+
+    <%= f.submit %>
+<% end %>
+
+

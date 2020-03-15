@@ -6,6 +6,7 @@ class IngredientsController < ApplicationController
 
     def new
         get_recipe
+        @ingredient = Ingredient.new
     end 
 
     def get_recipe
