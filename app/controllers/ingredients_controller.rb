@@ -9,7 +9,12 @@ class IngredientsController < ApplicationController
         @ingredient = Ingredient.new
     end 
 
+    def create
+        raise params.inspect
+    end 
+
     def get_recipe
         @recipe ||= Recipe.find_by(id: params[:recipe_id])
     end
 end
+

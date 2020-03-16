@@ -2,7 +2,7 @@
 
 <%= form_for @ingredient do |f| %>
     <%= f.collection_select :name, Ingredient.all, :id, :name %>
-
+    <%= f.hidden_field :recipe_id, value: @recipe.id %>
     <%= f.submit %>
 <% end %>
 
