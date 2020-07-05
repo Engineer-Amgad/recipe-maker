@@ -4,5 +4,5 @@ class Recipe < ApplicationRecord
     has_man :ingredients, through: :recipe_ingredients
     
     validates_presence_of :name
-
+    #testing github
 end
