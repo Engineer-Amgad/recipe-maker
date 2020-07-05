@@ -40,34 +40,4 @@ class Recipe < ApplicationRecord
       end
   
     end
-
-    
-    # def ingredients_attributes=(ingredient_attributes)
-    #     ingredient_attributes.values.each do |ingredient_attribute|
-    #       ingredient = Ingredient.find_or_create_by(ingredient_attribute)
-    #       self.recipe_ingredients.build(ingredient: ingredient)
-    #     end
-    # end
-
-#     <h2>Create a New Recipe</h2>
-
-
-# <%= form_for @recipe do |f| %>
-#     <%= f.label "Name" %>
-#     <%= f.text_field :name %><br>
-#     <%= f.label "Prepartion Time" %>
-#     <%= f.text_field :make_time %>Minutes<br>
-#     <%= f.label "Instructions" %><br>
-#     <%= f.text_area :instructions %><br>
-    
-#     Add Ingredients:<br>
-#     <%= ingredients_fields.text_field :amount %><br><br>
-    
-#     <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br>
-#     <%= f.fields_for :ingredients, @recipe.ingredients.build do |ingredients_fields| %><br>
-#       <%= ingredients_fields.text_field :name %><br><br>
-#     <% end %>
-#     <%= f.submit %>
-
-#   <% end %>
 end
