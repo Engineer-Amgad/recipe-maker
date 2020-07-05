@@ -1,9 +1,12 @@
 <h2>Recipe Details:</h2>
 
-<p>display delete and edit link if for the creater only</p>
-
 
 <h3><%= @recipe.name %></h3>
-<p><%= @recipe.description %></p>
-<p> display list of ingredients </p>
+<p><%= @recipe.make_time%> minutes to prepare</p> 
+<p><%= @recipe.instructions%></p>
 
+<ul>  
+  <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+    <li><%= "#{recipe_ingredient.amount} #{recipe_ingredient.ingredient.name}" %></li>
+  <% end %>
+</ul>

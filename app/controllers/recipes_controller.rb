@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
 
     def new
         @recipe = Recipe.new
+        @ingredients = 6.times.collect { @recipe.recipe_ingredients.build }
     end 
 
     def show
@@ -13,17 +14,26 @@ class RecipesController < ApplicationController
     end
 
     def create
-        @recipe = Recipe.new(recipe_params)
-        if @recipe.save
+        # raise params.inspect
+        recipe = Recipe.new(recipe_params)
+        if recipe.save
+            recipe.add_ingredients_to_recipe(recipe_ingredient_params)
             redirect_to recipes_path
         else
-            render :new
+            @recipe = Recipe.new
+            redirect_to new_recipe_path, alert: recipe.errors.full_messages.each {|m| m}.join
         end 
     end 
 
     private
 
     def recipe_params
-        params.require(:recipe).permit(:name, :description)
+        params.require(:recipe).permit(:name, :make_time, :instructions)
     end 
+
+    def recipe_ingredient_params
+        params.require(:recipe).permit(recipe_ingredients_attributes: [:amount, :ingredient_id, ingredient: [:name]])
+    end
+
+   
 end
