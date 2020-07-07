@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+    before_action :authentication_required
 
     def index
         @recipes = Recipe.all
