@@ -19,3 +19,7 @@ class SessionsController < ApplicationController
         redirect_to root_path
     end 
 end
+
+# google oauth
+# 713712716236-a8bcref2tpdn9fa8ekcom3v0rpnsv8jr.apps.googleusercontent.com
+# 6u7cowTB_4CI7hZjYDMfAaoV
