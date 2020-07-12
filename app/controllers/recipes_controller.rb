@@ -15,8 +15,7 @@ class RecipesController < ApplicationController
     end
 
     def create
-        # raise params.inspect
-        recipe = Recipe.new(recipe_params)
+        recipe = current_user.recipes.new(recipe_params)
         if recipe.save
             recipe.add_ingredients_to_recipe(recipe_ingredient_params)
             redirect_to recipes_path
