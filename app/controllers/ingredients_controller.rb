@@ -17,4 +17,3 @@ class IngredientsController < ApplicationController
         @recipe ||= Recipe.find_by(id: params[:recipe_id])
     end
 end
-
