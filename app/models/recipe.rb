@@ -12,18 +12,9 @@ class Recipe < ApplicationRecord
     def user_name
       user.username
     end
-
-    def delete_ingredients_from_recipe
-        ingredients.size.times do
-        ingredient = RecipeIngredient.find_by(recipe_id: self.id)
-        ingredient.delete
-      end
-    end
   
     def add_ingredients_to_recipe(params)
   
-      delete_ingredients_from_recipe
-      
       params[:recipe_ingredients_attributes].each do |k, recipe_ingredient|
   
         if recipe_ingredient[:ingredient][:name].present?
