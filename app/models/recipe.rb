@@ -3,15 +3,20 @@ class Recipe < ApplicationRecord
     has_many :recipe_ingredients
     has_many :ingredients, through: :recipe_ingredients
     
-    validates :name, uniqueness: true
-    validates :name, presence: true
-
+    validates :name, :presence => true
+    validates :name, :uniqueness => true
+    
     accepts_nested_attributes_for :ingredients, reject_if: lambda {|attributes| attributes['name'].blank?}
     accepts_nested_attributes_for :recipe_ingredients, reject_if: lambda {|attributes| attributes['name'].blank?}
 
     def user_name
       user.username
     end
+
+    def self.find_by_user_id(id)
+      #find all recipes where user_id == id
+      where(user_id: id)
+    end 
   
     def add_ingredients_to_recipe(params)
   

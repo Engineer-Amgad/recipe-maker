@@ -4,10 +4,12 @@ Rails.application.routes.draw do
   post '/sessions' => "sessions#create"
   get '/logout' => "sessions#destroy"
   get '/auth/google_oauth2/callback' => 'sessions#create'
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do 
+    resources :recipes, only: [:index]
+  end
 
-  resources :recipes, only: [:index, :new, :create, :show] do
-     resources :ingredients, only: [:index, :new]
+  resources :recipes, only: [:index, :new, :create, :show, :update] do
+     resources :ingredients, only: [:new]
   end
 
 end

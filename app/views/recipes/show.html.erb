@@ -14,3 +14,4 @@ Recipe Instructions: <p><%= @recipe.make_time%> minutes to prepare</p>
 
 <h3>Instructions:</h3>
     <p><%= @recipe.instructions%></p>
+<%= link_to 'Add ingredient', new_recipe_ingredient_path(@recipe) %>

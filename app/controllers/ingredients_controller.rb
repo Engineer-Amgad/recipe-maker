@@ -5,8 +5,9 @@ class IngredientsController < ApplicationController
     end 
 
     def new
-        get_recipe
-        @ingredient = Ingredient.new
+        @recipe = Recipe.find(params[:recipe_id])
+        @ingredients = 6.times.collect { @recipe.recipe_ingredients.build }
+        
     end 
 
     def create

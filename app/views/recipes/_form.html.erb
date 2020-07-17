@@ -1,6 +1,14 @@
+<% if @recipe.errors.any? %>
+    <ul>
+    <% @recipe.errors.full_messages.each do |msg| %>
+        <p>
+        <li><%= msg %></li>
+        </p>
+    <% end %>
+    </ul>
+<% end %>
 <%= form_for recipe do |f| %>
 
-    
       <div>Recipe Name:</div> <div><%= f.text_field :name %></div>
       <div>Cook Time in Minutes:</div> <div><%= f.text_field :make_time %></div>
       <div>Instructions:</div> <div><%= f.text_area :instructions %></div>

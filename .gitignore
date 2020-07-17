@@ -36,4 +36,4 @@ yarn-debug.log*
 .yarn-integrity
 
 # Ignore oauth key and secret
-/omniauth_readme/.env
+.env
